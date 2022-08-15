@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form method="POST" action="">
+    {% csrf_token %}
+    <p>Êtes-vous sûr de vouloir supprimer ce produit de votre liste de produits suivis ?</p>
+    <p>"{{object.name}}"</p>
+    <button class="btn btn-warning" type="submit">Oui</button>
+</form>
+
+{% endblock content %}

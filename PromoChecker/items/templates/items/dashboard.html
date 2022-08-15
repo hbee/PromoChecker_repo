@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <!-- Modal -->
+    <div class="modal fade" id="AddItemModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Suivre un produit</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="" method="POST" autocomplete="off">
+                    {% csrf_token %}
+                    {{form|crispy}}
+                    <button type="submit" class="btn btn-primary mt-2">Ajouter</button>
+                </form>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col text-left">
+            <button class="btn btn-outline-primary" data-toggle="modal" data-target="#AddItemModal">Ajouter un produit</button>
+            <a href="{% url 'items.update-prices' %}"><button class="btn btn-info">Mettre à jour</button></a>
+        </div>
+        <div class="col text-right">
+            <span>Nombre de produits suivis : {{no_tracked_items}}</span> <br>
+            <span>Nombre de produits au prix souhaité : {{no_discounted_items}}</span>
+        </div>
+    </div>
+
+    {% if query_set %}
+        {% for item in query_set%}
+            <div class="card mt-3">
+                <div class="card-header">
+                    <h5>{{item.name}}</h5>
+                    <a href="{% url 'items.delete' item.pk %}"><button class="btn btn-danger">Supprimer</button></a>
+                </div>
+                <div class="card-body">
+                    <div class="blockquote">
+                        <div>Prix actuel : {{item.current_price}}</div>
+                        <div>Prix initial :  {{item.initial_price}}</div>
+                        <div>Prix souhaité : {{item.target_price}}</div>
+                        <div>lien vers le produit : <a href="{{item.url}}">Page du produit</a></div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <h3> Aucun produit suivi </h3>
+    {% endif %}
+
+{% endblock content %}
