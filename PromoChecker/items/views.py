@@ -12,7 +12,6 @@ def dashboard_view(request):
     """
 
     error: str = None
-    
     form = AddTrackedItem(request.POST or None)
     
     if request.method == "POST":
@@ -20,7 +19,7 @@ def dashboard_view(request):
             if form.is_valid():
                 form.save()
         except AttributeError:
-            error = "Echec lors de l'extraction des données du produit :/"
+            error = "Echec de l'extraction des données du produit :/"
         except: # pylint: disable=bare-except
             error = "Un problème inattendu est survenu"
 

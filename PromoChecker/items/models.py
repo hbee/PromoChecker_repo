@@ -52,10 +52,7 @@ class TrackedItem(models.Model):
     
     STORE: dict = {
         ('zalando', 'zalando'),
-        ('asos', 'asos'),
-        ('darty', 'darty'),
-        ('cdiscount', 'cdiscount'),
-        ('manomano', 'manomano')
+        ('asos', 'asos')
     }
     
     url = models.URLField(max_length=200)
@@ -87,12 +84,12 @@ class TrackedItem(models.Model):
         ordering = ['-created']
 
     def save(self, *args, **kwargs):
-        name, price = get_item_data(self.url)
+        item_name, item_price = get_item_data(url=self.url, store=self.store)
         
         if not self.current_price:
-            self.initial_price = price
+            self.initial_price = item_price
         
-        self.current_price = price
-        self.name = name
+        self.current_price = item_price
+        self.name = item_name
         
         super().save(*args, **kwargs)
