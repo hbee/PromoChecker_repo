@@ -76,12 +76,12 @@ class TrackedItem(models.Model):
     app_user = models.ForeignKey(
         AppUser, null=True, on_delete=models.CASCADE, blank=True
     )
+    
+    class Meta:
+        ordering = ['-created']
 
     def __str__(self) -> str:
         return str(self.name)
-
-    class Meta:
-        ordering = ['-created']
 
     def save(self, *args, **kwargs):
         item_name, item_price = get_item_data(url=self.url, store=self.store)
