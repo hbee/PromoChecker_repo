@@ -129,3 +129,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # crispy forms
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+# User model to use for authentication
+AUTH_USER_MODEL = 'items.AppUser'
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.AllowAllUsersModelBackend',
+    'items.backends.CaseInsensitiveModelBackend'
+]

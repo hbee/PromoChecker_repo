@@ -1,13 +1,51 @@
-from re import T
 from typing import Dict, List
-from unicodedata import name
 
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 from .utils import get_item_data
 
 
-class AppUser(AbstractBaseUser):
+class AppUserManager(BaseUserManager):
+    """Custom user manager for the AppUser model
+    """
+    
+    def create_user(self, email, full_name, password=None):
+        """Function to create a user account
+
+        Args:
+            email (str): email address of the new account
+            password (str, optional): password for the new account
+        """
+        
+        if not email:
+            raise ValueError(
+                "No email provided for account creation"
+            )
+        user = self.model(
+            email=self.normalize_email(email),
+            full_name=full_name
+        )
+        user.set_password(password)
+        user.save(using=self._db)
+        return user
+    
+    def create_superuser(self, email, full_name, password=None):
+        """Function to create a super user account
+        """
+        
+        user = self.create_user(
+            self.normalize_email(email),
+            full_name,
+            password
+        )
+        user.is_superuser = True
+        user.is_admin = True
+        user.is_staff = True
+        user.save(using=self._db)
+        return user
+        
+
+class AppUser(PermissionsMixin, AbstractBaseUser):
     """Class for the app users profiles
 
     Attributes:
@@ -23,15 +61,25 @@ class AppUser(AbstractBaseUser):
         ('other', 'other'),
     }
     
-    full_name = models.CharField(max_length=48, null=True)
-    email = models.EmailField(max_length=32, null=True, unique=True)
+    full_name = models.CharField(verbose_name="full name", max_length=48, null=True)
+    email = models.EmailField(verbose_name="email", max_length=48, null=True, unique=True)
+    date_joined = models.DateTimeField(verbose_name="date joined", auto_now_add=True, null=True)
+    is_superuser = models.BooleanField(default=False)
+    is_admin = models.BooleanField(default=False)
+    is_staff = models.BooleanField(default=False)
     referral_route = models.CharField(
         max_length=12, null=True, blank=True, choices=REFERRAL_ROUTE
     )
     
+    objects = AppUserManager()
+    
     USERNAME_FIELD: str = 'email'
     EMAIL_FIELD: str = 'email'
-    REQUIRED_FIELDS: List[str] = ['email']
+    REQUIRED_FIELDS: List[str] = ['full_name']
+    
+    def __str__(self) -> str:
+        return str(self.full_name)
+    
     
 
 class TrackedItem(models.Model):
