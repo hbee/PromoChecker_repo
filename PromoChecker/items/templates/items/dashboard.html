@@ -30,12 +30,12 @@
             <a href="{% url 'items.update-prices' %}"><button class="btn btn-info">Mettre à jour</button></a>
         </div>
         <div class="col text-center">
-            <span> Bienvenu, {{request.user}} </span>
-            <a href="{% url 'items.logout' %}"><button class="btn btn-outline-danger">Se déconnecter</button></a>
-        </div>
-        <div class="col text-right">
             <span>Nombre de produits suivis : {{no_tracked_items}}</span> <br>
             <span>Nombre de produits au prix souhaité : {{no_discounted_items}}</span>
+        </div>
+        <div class="col text-right">
+            <span> Bienvenu, {{request.user}} </span>
+            <a href="{% url 'items.logout' %}"><button class="btn btn-outline-danger">Se déconnecter</button></a>
         </div>
     </div>
 
@@ -59,5 +59,9 @@
     {% else %}
         <h3> Aucun produit suivi </h3>
     {% endif %}
+
+    {% for message in messages %}
+		<p id="messages">{{message}}</p>
+	{% endfor %}
 
 {% endblock content %}

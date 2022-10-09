@@ -27,10 +27,12 @@ class RegistrationForm(UserCreationForm):
         self.fields['password1'].widget = forms.PasswordInput(attrs={
             'placeholder': "Mot de passe",
             "class": "form-control",
-        })
+            }
+        )
         self.fields['password2'].widget = forms.PasswordInput(attrs={
             'placeholder': 'Mot de passe',
-            'class': 'form-control',}
+            'class': 'form-control',
+            }
         )
 
 
