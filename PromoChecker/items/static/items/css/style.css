@@ -1,0 +1,496 @@
+/**************************/
+/* HEADER SECTION */
+/**************************/
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 9.6rem;
+    padding: 0 4.8rem;
+    position: relative;
+}
+
+.logo-nav {
+    height: 4.2rem;
+}
+
+.main-nav-list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 3.2rem;
+}
+
+.main-nav-link:link,
+.main-nav-link:visited {
+    display: inline-block;
+    text-decoration: none;
+    color: #333;
+    font-weight: 550;
+    font-size: 1.8rem;
+    transition: all 0.3s;
+}
+
+.main-nav-link:hover,
+.main-nav-link:active {
+    color: #d87a04;
+}
+
+.nav-cta:link,
+.nav-cta:visited{
+    padding: 1.2rem 2.4rem;
+    border-radius: 9px;
+    color: #fff;
+    background-color: #d87a04;
+}
+
+.nav-cta:hover,
+.nav-cta:active{
+    background-color: #f08804;
+}
+
+/**************************/
+/* HERO SECTION */
+/**************************/
+.btn-mobile-nav {
+    border: none;
+    background: none;
+    cursor: pointer;
+
+    display: none;
+}
+
+.icon-mobile-nav {
+    height: 4.8rem;
+    width: 4.8rem;
+    color: #333;
+}
+
+.icon-mobile-nav[name="menu-outline"] {
+
+}
+
+.icon-mobile-nav[name="close-outline"] {
+    display: none;
+}
+
+.sticky .header {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 8rem;
+    padding-top: 0;
+    padding-bottom: 0;
+    z-index: 999;
+    background-color: rgba(255, 255, 255, 0.97);
+    box-shadow: 0 1.2rem 3.2rem rgba(0, 0, 0, 0.03)
+}
+
+
+.sticky .hero-section {
+    margin-top: 9.6rem;
+}
+
+/**************************/
+/* HERO SECTION */
+/**************************/
+.hero-section {
+    padding: 4.8rem 0 9.6rem 0;
+}
+
+.hero-container {
+    max-width: 130rem;
+    margin: 0 auto;
+    padding: 0 3.2rem;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 9.6rem;
+    align-items: center;
+}
+
+.hero-img {
+    width: 100%;
+}
+
+.hero-description {
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: -0.5;
+    margin-bottom: 4.8rem;
+}
+
+.customers {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+    margin-top: 8rem;
+}
+
+.customers-faces {
+    display: flex;
+}
+
+.customers-faces img {
+    height: 4.6rem;
+    width: 4.6rem;
+    border-radius: 50%;
+    margin-right: -1.6rem;
+    border: 3px solid #fff;
+
+}
+
+.customers-faces img:last-child {
+    margin: 0;
+}
+
+.customers-text {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #666666;
+}
+
+.customers-text span {
+    color: #f08804;
+    font-weight: 700;
+}
+
+
+/**************************/
+/* PARTNERS SECTION */
+/**************************/
+.section-partners {
+    padding: 4.8rem 0 3.2rem 0;
+}
+
+.heading-partners {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.75px;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 2.4rem;
+    color: #888;
+}
+
+.logos {
+    display: flex;
+    justify-content: space-around;
+}
+
+.logos img {
+    height: 3.2rem;
+    filter: brightness(0);
+    opacity: 50%;
+}
+
+
+/**************************/
+/* HOWTO SECTION */
+/**************************/
+
+.section-how {
+    padding: 9.6rem 0;
+}
+
+.step-img-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.step-img {
+    width: 55%;
+    border-radius: 10px;
+}
+
+.step-number {
+    font-size: 9.8rem;
+    font-weight: 600;
+    color: #cccccc;
+    margin-bottom: 1.2rem;
+}
+
+.step-description {
+    font-size: 1.8rem;
+    line-height: 1.6;
+}
+
+
+
+/**************************/
+/* AVANTAGES SECTION */
+/**************************/
+.section-avantages {
+    padding: 6.4rem 0 4.8rem 0;
+}
+
+.avantage-icon {
+    color: #d87a04;
+    height: 3.2rem;
+    width: 3.2rem;
+    margin-bottom: 3.2rem;
+}
+
+.avantage-titre {
+    font-size: 2.4rem;
+    color: #333;
+    font-weight: 700;
+    margin-bottom: 1.6rem;
+}
+
+.avantage-text {
+    font-size: 1.8rem;
+    line-height: 1.8;
+}
+
+
+
+/**************************/
+/* AVIS SECTION */
+/**************************/
+.section-testimonials {
+    padding: 9.6rem 0;
+}
+
+.avis {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.margin-bottom {
+    margin-bottom: 7rem;
+}
+
+.avis-text {
+    font-size: 1.8rem;
+    line-height: 1.6;
+    letter-spacing: 0.75px;
+    text-align: center;
+}
+
+.avis-text::before {
+    content: '\275D';
+    font-size: 2rem;
+    color: #f08804;
+}
+
+.avis-text::after {
+    content: '\275E';
+    font-size: 2rem;
+    color: #d87a04;
+}
+
+.nom-avis {
+    width: 100%;
+    font-size: 1.6rem;
+    color: #f08804;
+    text-align: center;
+    margin-top: 2.5rem;
+    align-self: flex-end;
+}
+
+
+/**************************/
+/* CTA SECTION */
+/**************************/
+.section-cta {
+    padding: 4.8rem 0 12.8rem 0;
+}
+
+.cta {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    background-color: #f08804;
+    border-radius: 11px;
+    box-shadow: 0 2.4rem 4.8rem rgb(0 0 0 /15%);
+    background-image: linear-gradient(to right bottom, #f2941d, #f08804);
+    overflow: hidden;
+}
+
+.cta-text-box {
+    padding: 4.8rem 6.4rem 6.4rem 6.4rem;
+    color: #412501;
+}
+
+.cta-text {
+    font-size: 1.8rem;
+    line-height: 1.8;
+    margin-bottom: 4.8rem;
+}
+
+.cta .heading-secondary {
+    color: #412501;
+    margin-bottom: 3.2rem;
+}
+
+.cta-img-box {
+    background-image: linear-gradient(to right bottom, rgba(242, 150, 29, 0.2), rgba(240, 138, 4, 0.2)), url(../img/img-cta.jpg);
+    background-size: cover;
+    background-position: left;
+}
+
+.cta-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 3.2rem;
+    row-gap: 2.4rem;
+}
+
+.cta-form label {
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin-bottom: 1.2rem;
+}
+
+.cta-form input,
+.cta-form select {
+    width: 100%;
+    padding: 1.2rem;
+    font-size: 1.6rem;
+    font-family: inherit;
+    color: inherit;
+    border: none;
+    background-color: #fff;
+    border-radius: 9px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.cta-form input::placeholder {
+    color: #888;
+}
+
+.cta-form button {
+    background-color: #412501;
+    color: #cccccc;
+    align-self: end;
+    padding: 1.2rem;
+}
+
+.cta-form button:hover {
+    background-color: #fff;
+    color: #333;
+}
+
+
+
+/**************************/
+/* FOOTER SECTION */
+/**************************/
+.footer {
+    padding: 12.8rem 0;
+    border-top: 1px solid #eee;
+}
+
+.logo-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-footer {
+    height: 4.2rem;
+    margin-bottom: 3.2rem;
+}
+
+.copyright {
+    font-size: 1.4rem;
+    line-height: 1.6;
+    color: #666666;
+    margin-top: auto;
+}
+
+.footer-heading {
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-bottom: 4rem;
+}
+
+.footer-nav {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+}
+
+.footer-link:link,
+.footer-link:visited {
+    text-decoration: none;
+    font-size: 1.6rem;
+    line-height: 1.8rem;
+    color: #888;
+    transition: all 0.3s;
+}
+
+.footer-link:hover,
+.footer-link:active {
+    color: #666666;
+}
+
+.social-links {
+    list-style: none;
+    display: flex;
+    gap: 2.4rem;
+}
+
+.footer-link ion-icon {
+    height: 2.4rem;
+    width: 2.4rem;
+}
+
+
+
+/*******************************************/
+/* Flexbox Gap Fix for old Safari versions */
+/*******************************************/
+.no-flexbox-gap .main-nav-list li:not(:last-child) {
+    margin-right: 4.8rem;
+  }
+  
+  .no-flexbox-gap .list-item:not(:last-child) {
+    margin-bottom: 1.6rem;
+  }
+  
+  .no-flexbox-gap .list-icon:not(:last-child) {
+    margin-right: 1.6rem;
+  }
+  
+  .no-flexbox-gap .delivered-faces {
+    margin-right: 1.6rem;
+  }
+  
+  .no-flexbox-gap .meal-attribute:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+  
+  .no-flexbox-gap .meal-icon {
+    margin-right: 1.6rem;
+  }
+  
+  .no-flexbox-gap .footer-row div:not(:last-child) {
+    margin-right: 6.4rem;
+  }
+  
+  .no-flexbox-gap .social-links li:not(:last-child) {
+    margin-right: 2.4rem;
+  }
+  
+  .no-flexbox-gap .footer-nav li:not(:last-child) {
+    margin-bottom: 2.4rem;
+  }
+  
+  @media (max-width: 75em) {
+    .no-flexbox-gap .main-nav-list li:not(:last-child) {
+      margin-right: 3.2rem;
+    }
+  }
+  
+  @media (max-width: 59em) {
+    .no-flexbox-gap .main-nav-list li:not(:last-child) {
+      margin-right: 0;
+      margin-bottom: 4.8rem;
+    }
+  }

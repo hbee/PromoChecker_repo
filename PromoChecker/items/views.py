@@ -22,6 +22,14 @@ class ItemDeleteView(LoginRequiredMixin, DeleteView):
     template_name: str = "items/confirm_del.html"
     success_url = reverse_lazy('items.dashboard')
     login_url = reverse_lazy('items.dashboard')
+    
+
+@unauthenticated_user
+def main_view(request):
+    """View that renders the main page
+    """
+    
+    return render(request, 'items/main.html')
 
 
 @unauthenticated_user

@@ -5,7 +5,7 @@ from . import views
 
 
 urlpatterns: List = [
-    path('', views.dashboard_view, name='items.dashboard'),
+    path('', views.main_view, name='items.main'),
     
     path('delete/<pk>/', views.ItemDeleteView.as_view(), name='items.delete'),
     path('update/', views.update_prices, name='items.update-prices'),
@@ -13,4 +13,5 @@ urlpatterns: List = [
     path('login/', views.login_view, name='items.login'),
     path('logout/', views.logout_view, name='items.logout'),
     path('register/', views.register_view, name='items.register'),
+    path('dashboard/', views.dashboard_view, name='items.dashboard'),
 ]

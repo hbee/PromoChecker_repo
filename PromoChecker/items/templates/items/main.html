@@ -1,0 +1,329 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, intial-scale=1.0">
+        <meta name="description" content="Achetez moins chère grâce à PromoChecker">
+        
+        <link rel="icon" href="{% static 'items/images/favicon.png' %}">
+        <link rel="apple-touch-icon" href="{% static 'items/images/apple-touch-icon.png' %}">
+        <link rel="manifest" href="{% static 'items/manifest.webmanifest' %}">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="{% static 'items/css/general.css' %}">
+        <link rel="stylesheet" href="{% static 'items/css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'items/css/queries.css' %}">
+        
+        <title>PromoChecker</title>
+    </head>
+
+    <body>
+
+        <header class="header">
+            <a href="#">
+                <img class="logo-nav" alt="PromoChecker logo" src="{% static 'items/images/logo-nav.png' %}">
+            </a>
+
+            <nav class="main-nav">
+                <ul class="main-nav-list">
+                    <li><a class="main-nav-link" href="#how">Comment ça marche</a></li>
+                    <li><a class="main-nav-link" href="#avantages">Avantages</a></li>
+                    <li><a class="main-nav-link" href="#avis">Temoignages</a></li>
+                    <li><a class="main-nav-link" href="{% url 'items.login' %}">Connexion</a></li>
+                    <li><a class="main-nav-link nav-cta" href="{% url 'items.register' %}">Inscription</a></li>
+                </ul>
+            </nav>
+
+            <button class="btn-mobile-nav">
+                <ion-icon class="icon-mobile-nav"
+                name="menu-outline"></ion-icon>
+                <ion-icon class="icon-mobile-nav"
+                name="close-outline"></ion-icon>
+            </button>
+        </header>
+
+        <main>
+            <section class="hero-section" id="hero">
+                <div class="hero-container container">
+                    <div class="hero-text-box">
+                        <h1 class="heading-primary">
+                            Faîtes des économies.<br>
+                            Achetez au meilleur prix&nbsp;!
+                        </h1>
+                        <p class="hero-description">
+                            Un article vous plaît mais vous le trouvez chère ?<br>
+                            Faîtes-nous savoir, nous vous informerons dès que son prix sera devenu 
+                            abordable !
+                        </p>
+                        <a href="{% url 'items.register' %}" class="btn btn-cda margin-right-sm">Commencez maintenant !</a>
+                        <a href="#how" class="btn btn-info">Plus d'informations &darr;</a>
+                        <div class="customers">
+                            <div class="customers-faces">
+                                <img src="{% static 'items/images/users/customer1.jpg' %}"
+                                alt="customer photo">
+                                <img src="{% static 'items/images/users/customer2.jpg' %}"
+                                alt="customer photo">
+                                <img src="{% static 'items/images/users/customer3.jpg' %}"
+                                alt="customer photo">
+                                <img src="{% static 'items/images/users/customer4.jpg' %}"
+                                alt="customer photo">
+                                <img src="{% static 'items/images/users/customer5.jpg' %}"
+                                alt="customer photo">
+                                <img src="{% static 'items/images/users/customer6.jpg' %}"
+                                alt="customer photo">
+                            </div>
+                            <p class="customers-text">
+                                Rejoignez-nous, c'est <span> gratuit !</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="hero-img-box">
+                        <picture>
+                            <source srcset="{% static 'items/images/hero-img.webp' %}" type="image/webp">
+                            <source srcset="{% static 'items/images/hero-img.png' %}" type="image/webp">
+                            <img src="{% static 'items/images/hero-img.png' %}" 
+                                class="hero-img" 
+                                alt="people enjoying online shopping">
+                        </picture>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-partners">
+                <div class="container">
+                    <h2 class="heading-partners">
+                        Sites partenaires
+                    </h2>
+                    <div class="logos">
+                        <img src="{% static 'items/images/partners-logos/asos.png' %}" alt="asos logo">
+                        <img src="{% static 'items/images/partners-logos/zalando.png' %}" alt="zalando logo">
+                        <img src="{% static 'items/images/partners-logos/cdiscount.png' %}" alt="cdiscount logo">
+                        <img src="{% static 'items/images/partners-logos/darty.png' %}" alt="darty logo">
+                        <img src="{% static 'items/images/partners-logos/manomano.png' %}" alt="manomano logo">
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-how" id="how">
+                <div class="container">
+                    <span class="subheading">Comment ça marche ?</span>
+                    <h2 class="heading-secondary">Achetez moins chère en 3 étapes</h2>
+                </div>
+
+                <div class="container grid grid--2-cols grid--center-v">
+                    <!-- Step 1 -->
+                    <div class="step-text-box">
+                        <p class="step-number">01</p>
+                        <h3 class="heading-tertiary">
+                            Trouves le produit qui te plaît
+                        </h3>
+                        <p class="step-description">
+                            Trouves le produit qui te plaît dans le site de ton choix,
+                            puis copies son lien (url).
+                        </p>
+                    </div>
+                    <div class="step-img-box">
+                        <img src="{% static 'items/images/how-to-steps/step-one.jpg' %}" class="step-img"
+                        alt="personne cherchant un produit sur un site">
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="step-img-box">
+                        <img src="{% static 'items/images/how-to-steps/placeholder-step2.jpg' %}" class="step-img"
+                        alt="placeholder">
+                    </div>
+                    <div class="step-text-box">
+                        <p class="step-number">02</p>
+                        <h3 class="heading-tertiary">
+                            Ajoutes-le à ta liste de produit
+                        </h3>
+                        <p class="step-description">
+                            Ajoutes-le à ta liste de produits à suivre en cliquant
+                            sur "Ajouter" et en collant le lien du produit avant de valider.
+                        </p>
+                    </div>
+                    
+                    <!-- Step 3 -->
+                    <div class="step-text-box">
+                        <p class="step-number">03</p>
+                        <h3 class="heading-tertiary">
+                            Reçois un email lorsque le produit est au prix souhaité
+                        </h3>
+                        <p class="step-description">
+                            Une fois le produit ajouté, il ne te reste plus qu'à attendre
+                            que nous t'informions par email lorsque son prix te sera abordable
+                        </p>
+                    </div>
+                    <div class="step-img-box">
+                        <img src="{% static 'items/images/how-to-steps/step-three.jpg' %}" class="step-img"
+                        alt="placeholder">
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="section-avantages" id="avantages">
+                <div class="container">
+                    <span class="subheading">Avantages</span>
+                    <h2 class="heading-secondary">Pourquoi utiliser PromoChecker ?</h2>
+                </div>
+
+                <div class="container grid grid--3-cols">
+                    <div class="avantage">
+                        <ion-icon class="avantage-icon" name="trail-sign-outline"></ion-icon>
+                        <p class="avantage-titre">Simple</p>
+                        <p class="avantage-text">
+                            Facile et simple à utiliser, vous pouvez suivre vos produits en
+                            seulement quelques clics.
+                        </p>
+                    </div>
+                    <div class="avantage">
+                        <ion-icon class="avantage-icon" name="cash-outline"></ion-icon>
+                        <p class="avantage-titre">Efficace</p>
+                        <p class="avantage-text">
+                            Vous permet d'économiser votre argent durement gagnée.
+                        </p>
+                    </div>
+                    <div class="avantage">
+                        <ion-icon class="avantage-icon" name="heart-outline"></ion-icon>
+                        <p class="avantage-titre">Gratuit</p>
+                        <p class="avantage-text">
+                            Et le meilleur dans tout ça, c'est que c'est gratuit !
+                            Vous n'avez littéralement rien à perdre, donc profitez ;)
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-testimonials" id="avis">
+                <div class="container">
+                    <span class="subheading">Avis</span>
+                    <h2 class="heading-secondary margin-bottom">
+                        Ce que nos utilisateurs pensent de notre outil
+                    </h2>
+                </div>
+
+                <div class="container grid grid--3-cols">
+                    <div class="avis">
+                        <blockquote class="avis-text">
+                            Depuis que j'ai un compte sur PromoChecker, j'arrive à acheter
+                            pour beaucoup moins chère sur internet. 
+                        </blockquote>
+                        <p class="nom-avis">Ahmed</p>
+                    </div>
+                    <div class="avis">
+                        <blockquote class="avis-text">
+                            Tellement pratique cette application, ça me permet de faire des 
+                            économies, et surtout, à être la première à profiter des 
+                            soldes.
+                        </blockquote>
+                        <p class="nom-avis">Ludivine</p>
+                    </div>
+                    <div class="avis">
+                        <blockquote class="avis-text">
+                            Un grand merci aux développeurs de PromoChecker pour avoir créer 
+                            cette application gratuite, s'en passer serait vraiment du gachis.
+                        </blockquote>
+                        <p class="nom-avis">David</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-cta">
+                <div class="container">
+                    <div class="cta">
+                        <div class="cta-text-box">
+                            <h2 class="heading-secondary">Commences dès aujourd'hui&nbsp;!</h2>
+                            <p class="cta-text">
+                                Crées ton compte PromoChecker et profites de toutes ses 
+                                fonctionnalités gratuitement dès maintenant.
+                            </p>
+
+                            <form class="cta-form" action="#">
+                                <div>
+                                    <label for="full-name">Nom complet</label>
+                                    <input id="full-name" type="text" placeholder="Yann Lecoin" required>
+                                </div>
+
+                                <div>
+                                    <label for="email">Adresse email</label>
+                                    <input id="email" type="email" placeholder="email@exemple.com" required>
+                                </div>
+                                
+                                <div>
+                                    <label for="select-how">Comment êtes-vous arrivé ici ?</label>
+                                    <select id="select-how" required>
+                                        <option value="">Veuillez choisir une option</option>
+                                        <option value="bouche-oreille">Bouche à oreille</option>
+                                        <option value="reseaux-sociaux">Réseaux sociaux</option>
+                                        <option value="Google">Moteur de recherche</option>
+                                        <option value="Autre">Autre</option>
+                                    </select>
+                                </div>
+
+                                <button class="btn" href="{% url 'items.register' %}">Je crée un compte</button>
+                            </form>
+                        </div>
+                        <div class="cta-img-box" role="img" aria-label="piggy bank"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="container grid grid--4-cols">
+                <div class="logo-col">
+                    <a href="#">
+                        <img class="logo-footer" alt="PromoChecker logo" src="{% static 'items/images/logo-nav.png' %}">
+                    </a>
+                    <p class="copyright">
+                        Copyright &copy; <span class="year">2023</span>2023 by PromoChecker. All rights reserved.
+                    </p>
+                </div>
+                <div class="contact-col">
+                    <p class="footer-heading">Nous contacter</p>
+                    <ul class="footer-nav">
+                        <p>
+                            <a class="footer-link" href="mailto:contact@promochecker.com">
+                                contact@promochecker.com
+                            </a>
+                        </p>
+                        <ul class="social-links">
+                            <li><a class="footer-link" href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
+                            <li><a class="footer-link" href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
+                            <li><a class="footer-link" href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
+                        </ul>
+                    </ul>
+                </div>
+                <div class="nav-col">
+                    <p class="footer-heading">Mon compte</p>
+                    <ul class="footer-nav">
+                        <li><a class="footer-link" href="#">Créer un compte</a></li>
+                        <li><a class="footer-link" href="#">Se connecter</a></li>
+                        <li><a class="footer-link" href="#">Confidentialité & Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="nav-col">
+                    <p class="footer-heading">Ressources</p>
+                    <ul class="footer-nav">
+                        <li><a class="footer-link" href="#">Android app</a></li>
+                        <li><a class="footer-link" href="#">IOS app</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+        <script src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"></script>
+        
+        <script src="{% static 'js/script.js' %}"></script>
+    </body>
+</html>
