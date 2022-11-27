@@ -138,7 +138,11 @@ def update_prices(request):
     """View to update the prices of the tracked items
     """
     
-    query_set: List[TrackedItem] = TrackedItem.objects.all() # pylint: disable=no-member
+    current_user: AppUser = request.user
+    
+    query_set: List[TrackedItem] = TrackedItem.objects.filter( # pylint: disable=no-member
+        app_user=current_user  
+        ) 
     for item in query_set:
         item.save()
     return redirect('items.dashboard')
