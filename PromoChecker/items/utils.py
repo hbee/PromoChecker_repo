@@ -15,11 +15,13 @@ def get_item_data(url: str, store: str) -> Tuple[str, float]:
         name, price (Tuple): name of the product, its price
     """
 
-    if store == "asos":
-        return _data_extraction_asos(url=url)
-    elif store == "zalando":
-        return _data_extraction_zalando(url=url)
-    return ('not found', 'not found')
+    try:
+        if store == "asos":
+            return _data_extraction_asos(url=url)
+        elif store == "zalando":
+            return _data_extraction_zalando(url=url)
+    except Exception:
+        return ('not found', -404)
 
 
 def _data_extraction(data_extraction_func):

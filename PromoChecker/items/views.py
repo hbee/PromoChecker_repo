@@ -7,6 +7,8 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.mail import send_mail
+from django.conf import settings
 
 from .models import AppUser, TrackedItem
 from .forms import AddTrackedItem
@@ -138,11 +140,22 @@ def update_prices(request):
     """View to update the prices of the tracked items
     """
     
-    current_user: AppUser = request.user
-    
-    query_set: List[TrackedItem] = TrackedItem.objects.filter( # pylint: disable=no-member
-        app_user=current_user  
-        ) 
+    query_set: List[TrackedItem] = TrackedItem.objects.all()
     for item in query_set:
         item.save()
+        if item.current_price <= item.target_price:
+            subject: str = "Un produit qui vous intéresse est au prix souhaité !"
+            message: str = (
+                f"Le produit qui vous intéresse suivant {item.name} "
+                f"est maintenant au prix : {item.current_price} \n"
+                f"<a href='{item.url}'>Accédez au site de vente</a>"
+            )
+            send_mail(
+                subject=subject,
+                message=message,
+                from_email=settings.EMAIL_HOST_USER,
+                recipient_list=[item.app_user.email]
+            )
+            
+            
     return redirect('items.dashboard')
